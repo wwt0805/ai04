@@ -55,4 +55,5 @@ class SplitPeaches:
         return p
 
 
-print(SplitPeaches(5).get_peaches())  # 返回5个猴子拿走的数目
+if __name__ == "__main__":
+    print(SplitPeaches(5).get_peaches())  # 返回5个猴子拿走的数目
