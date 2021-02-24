@@ -18,6 +18,17 @@ class Calculate:
         return Calculate(self.months - 1).get_rabbits() + Calculate(self.months - 2).get_rabbits()
 
 
+def get_rabbits(months, store):
+    if store is None:
+        store = {}
+    if months <= 2:
+        return 1
+    if months in store:
+        return store[months]
+    result = get_rabbits(months - 1, store) + get_rabbits(months - 1, store)
+    store[months] = result
+    return result
+
 if __name__ == "__main__":
     for months in range(1, 50 + 1):
         print(months, Calculate(months).get_rabbits())

@@ -31,5 +31,15 @@ class Hanoi:
             Hanoi(self.mid, self.src, self.dst, self.num - 1).hanuo()
 
 
+def hanuo(src, mid, dst, num):
+    if self.num == 1:
+        print("{},{} ==> {}".format(self.src, 1, self.dst))
+    else:
+        Hanoi(self.src, self.dst, self.mid, self.num - 1).hanuo()
+        print("{},{} ==> {}".format(self.src, self.num, self.dst))
+        Hanoi(self.mid, self.src, self.dst, self.num - 1).hanuo()
+
+
+
 if __name__ == "__main__":
     Hanoi("A", "B", "C", 4).hanuo()

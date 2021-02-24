@@ -1,9 +1,9 @@
 """
 coding=utf-8
 @Author  : Wu Wentong
-@Time    : 2021/2/24 10:02 下午
-@Site    : 
-@File    : p17_sqrt_GD1.py
+@Time    : 2021/2/24 10:30 下午
+@Site    :
+@File    : p18_sqrt_GD2.py
 @Software: PyCharm
 """
 
@@ -12,13 +12,12 @@ def sqrt(a, n=2):
     """
 
     :param a: 底数
-    :param n: 次方
-    :return:  底数对应的次方根
+    :param n: 次方数，默认为2
+    :return:  返回底数的次方根
     """
-    y = lambda x: x ** n
-    dy_dx = lambda x: n * x ** (n - 1)
-    dy = lambda x: a - y(x)
-    dx = lambda x, lr: lr * dy(x) * dy_dx(x)
+    y = lambda x: (x ** n - a) ** 2
+    dy_dx = lambda x: 2 * (x ** n - a) * n * x ** (n - 1)
+    dx = lambda x, lr: - lr * dy_dx(x)
 
     lr = 0.01
     x = 1.0
