@@ -32,62 +32,24 @@ class EightQueens:
     @staticmethod
     def available(row, col, dist):
         for i_row, i_col in enumerate(dist):        # 获取dist中存储皇后的位置，接下来需要验证与当前皇后是否有互斥关系
-            # 互斥条件：1. dist中的皇后和当前皇后在同一列；2.两者在斜线上
-            if col == i_col or i_row == col - i_col or row - i_row == i_col - col:
+            # 互斥条件：1. dist中的皇后和当前皇后在同一列；2.两者在斜线上（用绝对值即可表示所有情况）
+            if col == i_col or abs(row - i_row) == abs(i_col - col):
                 return False
         return True
 
 
 if __name__ == "__main__":
-    num = 8
-    dist = []
-    if EightQueens().queens(num, dist=dist):
-        for col in dist:
-            print(" " * col, end="")
-            print("★", end="")
-            print("☆" * (num - col - 1))
-    else:
-        print("no solution!")
-
-
-
-
-'''
-def queens(num: int, idx: int = 0, dist: list = None):
-    """
-
-    :param num:
-    :param idx:
-    :param dist:
-    :return:
-    """
-    if idx == num:
-        return True
-    if dist is None:
+    for num in range(1, 9):
         dist = []
-    for col in range(num):
-        if available(idx, col, dist):
-            dist.append(col)
-            if queens(num, idx + 1, dist):
-                return True
-            del dist[-1]
-    return False
+        print("n = {}".format(num))
+        if EightQueens().queens(num, dist=dist):
+            for col in dist:
+                print(" " * col, end="")
+                print("★", end="")
+                print("☆" * (num - col - 1))
+            print("=" * 10)
+        else:
+            print("no solution!")
+            print("=" * 10)
 
 
-def available(row, col, dist):
-    for i_row, i_col in enumerate(dist):
-        if col == i_col or i_row == col - i_col or row - i_row == i_col - col:
-            return False
-    return True
-
-
-dist = []
-num = 8
-if queens(num, dist=dist):
-    for col in dist:
-        print(" " * col, end="")
-        print("Q", end="")
-        print("-" * (num - col - 1))
-else:
-    print("no solution!")
-'''
