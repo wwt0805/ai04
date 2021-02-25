@@ -17,6 +17,7 @@ import warnings
 import numpy as np
 import matplotlib.pyplot as plt
 import logging
+import time
 warnings.filterwarnings("ignore")
 logging.basicConfig(level=logging.INFO)
 
@@ -79,4 +80,7 @@ def draw_graph(loss, iter):
 
 
 if __name__ == "__main__":
-    print("True values are: [3, -1, 0]; Calculation is: ", calculate(-3, 1, 2, 0.01, 2000))
+    start = time.time()
+    print("True values are: [3, -1, 0]; Calculation is: ", calculate(-3, 1, 2, 0.01, 300))
+    end = time.time()
+    print("Running time: {}".format(end - start))
