@@ -56,11 +56,9 @@ def to_frac(value):
     raise Exception('expect an integer, but found {}'.format(value))
 
 
-def gcd(a, b):  # 辗转相除法找最大公约数
-    if a > b:
-        t = a
-        a = b
-        b = t  # t -> a, a-> b, b ->t, 这样就是b > a
+def gcd(x1, x2):  # 辗转相除法找最大公约数
+    a = min(x1, x2)
+    b = max(x1, x2)
     while a != 0:
         t = b % a
         b = a
