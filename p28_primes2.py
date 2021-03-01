@@ -1,5 +1,6 @@
-
 import math
+
+
 def print_primes(n):
     #  1) tags = [2, 3, 4, ..., n]
     #  2) current = index + tags[index]
@@ -8,7 +9,7 @@ def print_primes(n):
     #  5) if current <= sqrt(n) then goto 2)
     #  6) print the elements that is not tagged in tags
 
-    tags = [False for _ in range(2, n+1)]  # set all tag to False for all integers in range (2, n+1)
+    tags = [False for _ in range(2, n + 1)]  # set all tag to False for all integers in range (2, n+1)
     index = 0
     value = 2
     sqrt = int(math.sqrt(n))
@@ -22,10 +23,10 @@ def print_primes(n):
             value += 1
             if not tags[index]: break
 
-    for tag, value in zip(tags, range(2, n+1)):
+    for tag, value in zip(tags, range(2, n + 1)):
         if not tag:
             print(value, end=', ')
 
 
-
-print_primes(1000)
+if __name__ == '__main__':
+    print_primes(1000)

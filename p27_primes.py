@@ -7,7 +7,9 @@ def is_prime(x):
     return True
 
 
-n = 1000
-for x in range(2, n+1):
-    if is_prime(x):
-        print(x, end=', ')
+
+if __name__ == '__main__':
+    n = 1000
+    for x in range(2, n+1):
+        if is_prime(x):
+            print(x, end=', ')
